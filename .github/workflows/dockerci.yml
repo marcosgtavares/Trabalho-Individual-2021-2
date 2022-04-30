@@ -39,5 +39,5 @@ jobs:
       
       - name: Run linter
         working-directory: ./aplicacao
-        run: docker-compose run application bash -c "gem install rubocop;rubocop --auto-correct-all --fail-fast --fail-level"
+        run: docker-compose run application bash -c "gem install rubocop;rubocop -A --fail-level F"
     
