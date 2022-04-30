@@ -1,0 +1,40 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build application
+    - working-directory: ./aplicacao
+      run: docker-compose up -d
+  
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Test application
+        working-directory: ./aplicacao
+        run: docker-compose run application bash -c "rails db:reset; rspec"
+  
+  lint:
+  
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run linter
+        working-directory: ./aplicacao
+        run: docker-compose run application bash -c "gem install rubocop;rubocop --auto-correct --fail-fast"
+    
