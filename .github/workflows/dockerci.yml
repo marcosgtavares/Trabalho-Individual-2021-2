@@ -13,11 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Build application
-    - working-directory: ./aplicacao
-      run: docker-compose up -d
+      - uses: actions/checkout@v3
+
+      - name: Build application
+      - working-directory: ./aplicacao
+        run: docker-compose up -d
   
   test:
 
