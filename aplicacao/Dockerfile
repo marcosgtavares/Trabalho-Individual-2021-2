@@ -1,11 +1,9 @@
 FROM ruby:3.0.0
 
-WORKDIR /app
+WORKDIR /aplication
 
-COPY / /app
+COPY / /aplication
 
 RUN bundle install
 
 EXPOSE 3000
-
-CMD ["rails", "server", "-b", "0.0.0.0"]

@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+    db:
+        image: postgres
+        volumes:
+            - ./tmp/db:/var/lib/postgresql/data
+        environment:
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_USER=postgres
+        ports:
+            - 5432:5432
+
+    aplication:
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        command: bash -c "rails db:setup && rails server -b 0.0.0.0"
+        ports:
+            - 3000:3000
+        volumes:
+            - "./aplication:/app"
+        depends_on:
+            - db
