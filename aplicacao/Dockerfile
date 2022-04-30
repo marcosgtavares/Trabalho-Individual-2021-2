@@ -1,8 +1,8 @@
 FROM ruby:3.0.0
 
-WORKDIR /aplication
+WORKDIR /application
 
-COPY / /aplication
+COPY / /application
 
 RUN bundle install
 
