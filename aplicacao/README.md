@@ -2,6 +2,15 @@
 
 Sistema para registro de livros pessoais
 
+### Subir o docker do banco + aplicação
+```
+docker-compose up --build
+```
+Para parar e remover os containers:
+```
+docker-compose down
+```
+
 ### Ruby and Rails version 
 - Ruby `3.0.0p0`  
 - Rails `7.0.2.3`
